@@ -1,0 +1,167 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Titulo Encabezado de Pagina -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Registrar Usuario</h1>
+    @*<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generar Reporte</a>*@
+</div>
+
+<!-- Tarjeta de  contenido -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Información de Usuario</h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-box">
+                    @using (Html.BeginForm("Guardar", "Usuario", FormMethod.Post, new { @id = "needs-validation", @novalidate = "novalidate" }))
+                    {
+                        <div class="row clearfix">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>DNI <span class="text-danger"></span></label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Nombres <span class="text-danger"></span></label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>Apellidos <span class="text-danger"></span></label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label>Correo Electrónico <span class="text-danger"></span></label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>Teléfono <span class="text-danger"></span></label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Usuario <span class="text-danger"></span></label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Contraseña <span class="text-danger"></span></label>
+                                    <input class="form-control" type="password">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                @Html.Label("Nivel de Usuario")
+                                <div class="form-group">
+                                    <select name="Nivel_Usuario" class="form-control">
+                                        <option value="">- Seleccionar -</option>
+                                        <option value="Miembro">Miembro</option>
+                                        <option value="Jefe">Jefe</option>
+                                        <option value="Administrador">Administrador</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                @Html.Label("Estado")
+                                <div class="form-group">
+                                    <select name="Estado" class="form-control">
+                                        <option value="">- Seleccionar -</option>
+                                        <option value="Activo">Activo</option>
+                                        <option value="Inactivo">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row clearfix text-right  ">
+                            <div class="col-md-12 ">
+                                <button class="btn btn-primary btn-icon-split" type="submit">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-save"></i>
+                                    </span>
+                                    <span class="text">Guardar</span>
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tarjeta de  contenido -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Lista de Usuarios</h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-box">
+                    <div class="table-responsive">
+                        <table id="example" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>DNI</th>
+                                    <th>Nombres y Apellidos</th>
+                                    <th class="text-right">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>47199491</td>
+                                    <td>Guimer Coaquira Coaquira</td>
+                                    <td class="text-right">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="btn btn-secondary btn-icon-split btn-sm">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-edit"></i>
+                                                </span>
+                                                <span class="text">Editar</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>47199000</td>
+                                    <td>Nilton Edy Perez Mamani</td>
+                                    <td class="text-right">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="btn btn-secondary btn-icon-split btn-sm">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-edit"></i>
+                                                </span>
+                                                <span class="text">Editar</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
