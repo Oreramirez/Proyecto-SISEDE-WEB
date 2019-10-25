@@ -50,6 +50,33 @@ if(not exists(select 1 from sys.tables where name= 'Persona'))
 	)
 GO
 
+
+--table PreporteAlerta
+if(not exists(select 1 from sys.tables where name= 'Reporte'))
+	create table dbo.Reporte(
+	reporte_id int identity(1,1) NOT NULL,
+	busqueda_id int NOT NULL
+	
+
+	PRIMARY KEY (reporte_id)
+	
+	)
+GO
+
+
+--table ReporteSistema(no se relaciona con nignuna tabla)
+if(not exists(select 1 from sys.tables where name= 'ReporteSistema'))
+	create table dbo.ReporteSistema(
+	reporte_id int identity(1,1) NOT NULL,
+	busqueda_id int NOT NULL,
+	usuario_id varchar(250) NOT NULL,
+
+	PRIMARY KEY (reporte_id)
+	
+	)
+GO
+
+
 --table Search
 if(not exists(select 1 from sys.tables where name= 'Busqueda'))
 	create table dbo.Busqueda(
@@ -62,7 +89,9 @@ if(not exists(select 1 from sys.tables where name= 'Busqueda'))
 	fecha datetime NOT NULL,
 	
 	PRIMARY KEY (usuario_id),
-	FOREIGN KEY (persona_id) REFERENCES Persona(persona_id)
+	FOREIGN KEY (persona_id) REFERENCES Persona(persona_id),
+	FOREIGN KEY (busqueda_id) REFERENCES Reporte(reporte_id)
+
 	)
 GO
 
